@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Gustavo's Gallery</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="hdr_back">
+            <h1 id="header">&nbsp</h1>
+        </div>
+
+        <div class="row">
+            <div class="item" id="item0">
+                <img id="image0" src="#">
+            </div>
+            <div class="item" id="item1">
+                <img id="image1" src="#">
+            </div>
+            <div class="item" id="item2">
+                <img id="image2" src="#">
+            </div>
+            <div class="item" id="item3">
+                <img id="image3" src="#">
+            </div>
+            <div class="item" id="item4">
+                <img id="image4" src="#">
+            </div>
+        </div>
+
+        <div class="large_image" id="large">&nbsp</div>
+
+        <script type="text/javascript">
+            var gallery = []
+
+            function Art_work(name, price, pic_file) {
+                this.name = name;
+                this.price = price;
+                this.image = pic_file;
+            }
+
+            function Create_gallery() {
+                var piece1 = new Art_work("No. 5, 1948", "140,000,000", "number-5.jpg");
+                var piece2 = new Art_work("Wasserschlangen II", "197,700,000", "Wasserschlangen.jpeg");
+                var piece3 = new Art_work("Meule", "85,000,000", "meule.jpg");
+                var piece4 = new Art_work("Laboureur dans un champ", "83,100,000", "van_gogh.jpg");
+                var piece5 = new Art_work("Au Lapin Agile", "82,300,000", "picasso.jpg");
+                gallery.push(piece1);
+                gallery.push(piece2);
+                gallery.push(piece3);
+                gallery.push(piece4);
+                gallery.push(piece5);
+            }
+
+            $(document).ready (
+                function () {
+                    $("#header").html("Gustavo's Gallery");
+                    Create_gallery();
+                    for (i = 0; i < 5; i++) {
+                        $("#image" + i).attr("src", gallery[i].image);
+                    }
+                }
+            );
+
+            $("#image0,#info0").mouseenter(function() {
+                $("#large").html("<img id=\"large0\" src=\"number-5.jpg\">");
+            });
+            $("#image0,#info0").mouseleave(function() {
+                $("#large").html("&nbsp");
+            });
+
+            $("#image1,#info1").mouseenter(function() {
+                $("#large").html("<img id=\"large0\" src=\"Wasserschlangen.jpeg\">");
+            });
+            $("#image1,#info1").mouseleave(function() {
+                $("#large").html("&nbsp");
+            });
+
+            $("#image2,#info2").mouseenter(function() {
+                $("#large").html("<img id=\"large0\" src=\"meule.jpg\">");
+            });
+            $("#image2,#info2").mouseleave(function() {
+                $("#large").html("&nbsp");
+            });
+
+            $("#image3,#info3").mouseenter(function() {
+                $("#large").html("<img id=\"large0\" src=\"van_gogh.jpg\">");
+            });
+            $("#image3,#info3").mouseleave(function() {
+                $("#large").html("&nbsp");
+            });
+
+            $("#image4,#info4").mouseenter(function() {
+                $("#large").html("<img id=\"large0\" src=\"picasso.jpg\">");
+            });
+            $("#image4,#info4").mouseleave(function() {
+                $("#large").html("&nbsp");
+            });
+
+
+            $("#image0").click(function() {
+                var info = "<p id=\"info0\"><br /><br />"+gallery[0].name+"<br /><br />$"+gallery[0].price+"</p>";
+                $("#item0").append(info);
+                $("#info0").delay(5000).fadeOut();
+            });
+
+            $("#image1").click(function() {
+                var info = "<p id=\"info1\"><br /><br />"+gallery[1].name+"<br /><br />$"+gallery[1].price+"</p>";
+                $("#item1").append(info);
+                $("#info1").delay(5000).fadeOut();
+            });
+
+            $("#image2").click(function() {
+                var info = "<p id=\"info2\"><br /><br />"+gallery[2].name+"<br /><br />$"+gallery[2].price+"</p>";
+                $("#item2").append(info);
+                $("#info2").delay(5000).fadeOut();
+            });
+
+            $("#image3").click(function() {
+                var info = "<p id=\"info3\"><br /><br />"+gallery[3].name+"<br /><br />$"+gallery[3].price+"</p>";
+                $("#item3").append(info);
+                $("#info3").delay(5000).fadeOut();
+            });
+
+            $("#image4").click(function() {
+                var info = "<p id=\"info4\"><br /><br />"+gallery[4].name+"<br /><br />$"+gallery[4].price+"</p>";
+                $("#item4").append(info);
+                $("#info4").delay(5000).fadeOut();
+            });
+
+        </script>
+
+    </body>
+</html>
